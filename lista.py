@@ -1,4 +1,6 @@
 #se crea una lista enlazada con funciones básicas
+
+# clase nodo, se le ha creado un nodo anterior pero no se utiliza durante el entorno
 class nodo:
 
     def __init__(self, siguiente = None, anterior = None, valor = None):
@@ -8,6 +10,7 @@ class nodo:
         self.indice = 0
     
 
+#clase lista
 class lst:
     
     def __init__(self):
@@ -43,8 +46,9 @@ class lst:
 
     
     def modificarDato (self, indice, valor):
-        # veriica que el indice exista
-        if int(indice) > self.largo :
+        # veriica que el indice existad
+        indice = int(indice)
+        if indice > self.largo :
             print("El índice indicado, no existe")
         else:
             ndc = 0
@@ -65,7 +69,7 @@ class lst:
             print("Elemento: " + str(self.auxiliar.valor) + " en índice " + str(self.auxiliar.indice))
             self.auxiliar = self.auxiliar.siguiente
 
-
+# clase que ejecuta el menú de funciones
 class acciones :
     
     def __init__ (self):
@@ -77,7 +81,8 @@ class acciones :
         print("1. Insertar elemento")
         print("2. Eliminar elemento")
         print("3. Editar elemento")
-        print("4. Salir")
+        print("4. Mostrar")
+        print("5. Salir")
         self.option = int(input())
 
         if self.option is 1 :
@@ -102,11 +107,16 @@ class acciones :
             self.Iniciar()
             pass
         elif self.option is 4:
+            print("Lista de datos almacenados ")
+            self.lista.mostrar()
+
+            self.Iniciar()
+        elif self.option is 5:
             print("vuelva pronto")
 
 
+
+# crea un nuevo menú e inicia el proceso
 menu = acciones()
 menu.Iniciar()
 
-
-#insertar un nuevo nodo
